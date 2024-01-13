@@ -100,8 +100,3 @@ class Sketch:
             elif name == 'shift':
                 self.add_shift(index, *params)
         self.show()
-
-
-if __name__ == '__main__':
-    with Sketch(2, length=2) as s:
-        s.add_square(0, 0, 'blue')
