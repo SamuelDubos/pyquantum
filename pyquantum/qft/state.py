@@ -1,6 +1,6 @@
 import numpy as np
 
-from pyquantum.qft.qft_circuit import QFTCircuit
+from pyquantum.qft.circuit import QFTCircuit
 
 
 class State:
