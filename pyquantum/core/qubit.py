@@ -45,14 +45,26 @@ class Qubit:
         phi = (np.angle(observation[1, 0]) - np.angle(observation[0, 0]))
         return Qubit(theta, phi, name)
 
+    @staticmethod
+    def format_component(value):
+        precision = 2
+        if isinstance(value, complex):
+            real_part = int(value.real) if round(value.real, precision) == round(value.real) else round(value.real, precision)
+            imag_part = int(value.imag) if round(value.imag, precision) == round(value.imag) else round(value.imag, precision)
+            return real_part if imag_part == 0 else f'{real_part}+{imag_part}j'
+        else:
+            return str(int(value)) if round(value, precision) == round(value) else f'{value:.{precision}f}'
+
     def __format__(self, format_spec):
         precision = 2
         if format_spec == 'n':
             return f'{self.alpha:.{precision}f} ' \
                    f'{self.beta:.{precision}f}'
         elif format_spec == 's':
-            return f'{self.alpha:+.{precision}f}|0>  ' \
-                   f'{self.beta:+.{precision}f}|1>'
+            alpha = self.format_component(self.alpha)
+            beta = self.format_component(self.beta) if self.beta.imag != 0 \
+                else self.format_component(self.beta.real)
+            return f'{alpha}|0> {beta}|1>'
         else:
             return f'{self.alpha} {self.beta}'
 
