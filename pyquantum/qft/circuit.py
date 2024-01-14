@@ -1,3 +1,8 @@
+"""
+Author: @samuel_dubos
+Date: January 14, 2024
+"""
+
 from numpy import allclose
 from pyquantum.circuit.circuit import Circuit
 from pyquantum.core.gate import *

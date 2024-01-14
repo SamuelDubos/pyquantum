@@ -1,3 +1,8 @@
+"""
+Author: @samuel_dubos
+Date: January 14, 2024
+"""
+
 import matplotlib.pyplot as plt
 from seaborn import heatmap
 from sys import stderr

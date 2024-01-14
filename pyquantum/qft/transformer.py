@@ -1,6 +1,6 @@
 """
 Author: @samuel_dubos
-Date: December 31, 2023
+Date: January 14, 2024
 """
 
 from numpy.linalg import norm

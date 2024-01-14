@@ -1,3 +1,8 @@
+"""
+Author: @samuel_dubos
+Date: January 14, 2024
+"""
+
 import numpy as np
 
 from pyquantum.qft.circuit import QFTCircuit
