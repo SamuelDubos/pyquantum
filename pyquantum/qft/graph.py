@@ -1,6 +1,6 @@
 """
 Author: @samuel_dubos
-Date: January 14, 2024
+Date: January 15, 2024
 """
 
 import matplotlib.pyplot as plt
@@ -17,7 +17,7 @@ class Graph(Transformer):
 
     def show_states(self):
         for state in self.states:
-            self.axes[0].plot(state.x, state.values, label=f'{state.label} signal')
+            self.axes[0].plot(state.x, state.values.real, label=f'{state.label} signal')
             self.axes[1].plot(state.x_freq, state.freq, label=f'{state.label} QFT')
 
     def show(self):

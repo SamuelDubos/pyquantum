@@ -1,6 +1,6 @@
 """
 Author: @samuel_dubos
-Date: January 14, 2024
+Date: January 15, 2024
 """
 
 import numpy as np
@@ -16,11 +16,11 @@ class State:
         self.values = values
         self.n_qubits = n_qubits
         self.fe = 1 / self.n
-        self.freq = self.get_freq()[:self.n // 2]
+        self.freq = np.array(self.get_freq()[:, :self.n // 2].T)
         self.x_freq = (np.arange(self.n) / (self.n * self.fe))[:self.n // 2]
         self.label = label
 
     def get_freq(self):
         qft = QFTCircuit(self.n_qubits)
         freq = np.round(qft.matrix @ self.values, 5)
-        return abs(np.matrix(freq).T)
+        return np.abs(np.matrix(freq).T).flatten()
